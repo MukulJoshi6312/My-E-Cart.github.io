@@ -1,0 +1,76 @@
+{% extends 'blog/basic.html' %}
+
+{% block css %}
+
+.imagezise{
+width: 100%;
+height: 100%;
+
+}
+
+#icons{
+    width:100px;
+    height:100px;
+    image-align: right;
+}
+
+body{
+    background:#424242;
+
+}
+.textColor{
+ color:white;
+}
+
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-4 mb-4 font-italic border-bottom textColor">
+                {{post.tilte}}
+            </h3><!--/ <img src='/media/{{i.image}}' class="card-img-top" alt="...">-->
+
+            <div class="blog-post">
+                <img src='/media/{{post.thumbnail}}' class="imagezise">
+
+                <h2 class="blog-post-title textColor">{{post.heading0}}</h2>
+                <p class="blog-post-meta textColor"><b>{{ post.pub_date }}</b> <a href="#">Mukul Joshi</a></p>
+                <div class="fb-like" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-layout="standard" data-action="like" data-size="large" data-show-faces="false" data-share="true"></div><br>
+
+                <h2 class="textColor">{{post.head0}}</h2>
+                <p class="textColor">{{post.chead0}}</p>
+                <h2 class="textColor">{{post.head1}}</h2>
+                <p class="textColor">{{post.chead1}}</p>
+                <h2 class="textColor">{{post.head2}}</h2>
+                <p class="textColor">{{post.chead2}}</p>
+                <br>
+                <div class="fb-comments textColor" data-href="http://127.0.0.1:8000/blog/blogpost/{{post.post_id}}" data-numposts="5" ></div>
+
+
+            </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+        <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 bg-light rounded">
+                <h2 class="font-italic">About</h2>
+                <a href="/shop" class="mm">                <img  id="icons" src="{% static 'blog/trolley.png' %}"/>
+<h4>My Cart</h4></a>
+                <p class="mb-0">My Cart <em>started out as a small project and is now</em> the fastest growing e-commerce stores of all times in india and abroad.</p>
+            </div>
+            <div class="p-4">
+                <h4 class="font-italic">Elsewhere</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}
